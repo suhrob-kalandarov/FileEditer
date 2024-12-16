@@ -14,13 +14,12 @@ public class FileManager {
             );
             switch (Input.getInt("-> Choose: ")) {
                 case 1 -> showAllFiles();
-
                 case 2 -> generateReport();
-
                 case 3 -> {
                     System.out.println("\n <|> You're logging out! Bye... !.");
                     return;
                 }
+                case 4 -> System.out.println("Case 4");
                 default -> System.out.println("\n<<!>> Invalid choice!. Try again! <<!>>");
             }
         }
@@ -59,7 +58,8 @@ public class FileManager {
                 ---
                  1 - Automatic file creation (default.txt)
                  2 - Manual creation
-                 3 - Back"""
+                 3 - Back
+                ---"""
         );
         switch (Input.getInt("-> Choose: ")){
             case 1 -> {
@@ -69,7 +69,7 @@ public class FileManager {
                         System.out.println("|> Default file created: " + defaultFile.getName());
                     }
                 } catch (IOException e) {
-                    System.out.println("<!> Failed to create default file: " + e.getMessage());
+                    throw new RuntimeException();
                 }
             }
 
@@ -113,30 +113,25 @@ public class FileManager {
                 int copies = Input.getInt("\n---\n-> Enter the number of file copies: ");
                 System.out.println("---");
                 for (int i = 1; i <= copies; i++) {
-
                     String parentDirectory = selectedFile.getParent();
                     String fileNameWithoutExtension = selectedFile.getName().substring(0, selectedFile.getName().lastIndexOf('.'));
                     String extension = getFileExtension(selectedFile);
                     String newFileName = fileNameWithoutExtension + i + "." + extension;
                     File copy = new File(parentDirectory, newFileName);
-
                     try {
                         Thread.sleep(500);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
-
                     try {
                         copyFile(selectedFile, copy);
                         System.out.println("|> Created copy: " + copy.getName());
                     } catch (IOException e) {
-                        System.out.println("<<!> Failed to copy file: " + e.getMessage());
+                        throw new RuntimeException();
                     }
                 }
             }
-            case 3 -> {
-                return;
-            }
+            case 3 -> {}
             default -> System.out.println("<<!>> Invalid action! <<!>>");
         }
     }
