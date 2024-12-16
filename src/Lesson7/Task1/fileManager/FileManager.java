@@ -14,9 +14,7 @@ public class FileManager {
             );
             switch (Input.getInt("-> Choose: ")) {
                 case 1 -> showAllFiles();
-
                 case 2 -> generateReport();
-
                 case 3 -> {
                     System.out.println("\n <|> You're logging out! Bye... !.");
                     return;
