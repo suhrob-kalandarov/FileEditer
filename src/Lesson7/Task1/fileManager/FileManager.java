@@ -14,12 +14,16 @@ public class FileManager {
             );
             switch (Input.getInt("-> Choose: ")) {
                 case 1 -> showAllFiles();
-
                 case 2 -> generateReport();
-
                 case 3 -> {
                     System.out.println("\n <|> You're logging out! Bye... !.");
                     return;
+                }
+                case 4 ->{
+                    System.out.println("Case 4, Not implemented");
+                }
+                case 5 ->{
+                    System.out.println("Case 5,  Not implemented");
                 }
                 default -> System.out.println("\n<<!>> Invalid choice!. Try again! <<!>>");
             }
