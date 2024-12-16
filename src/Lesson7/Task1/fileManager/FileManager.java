@@ -19,7 +19,12 @@ public class FileManager {
                     System.out.println("\n <|> You're logging out! Bye... !.");
                     return;
                 }
-                case 4 -> System.out.println("Case 4");
+                case 4 ->{
+                    System.out.println("Case 4, Not implemented");
+                }
+                case 5 ->{
+                    System.out.println("Case 5,  Not implemented");
+                }
                 default -> System.out.println("\n<<!>> Invalid choice!. Try again! <<!>>");
             }
         }
